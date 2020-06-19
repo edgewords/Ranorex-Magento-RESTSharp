@@ -27,14 +27,14 @@
 			reportlevel="Info;20">
 			</testcase>
 			<testmodule
-			id="72513b42-237c-4cfa-87f8-0747b1031cfe"
-			name="Recording1"
-			ref="fa092901-7a0f-42cd-b511-0b3d0ee8468c"
-			type="Recording">
+			id="6b64f493-1af8-43b2-9922-796f2e67d78b"
+			name="MagentoAPI"
+			ref="7211c018-2162-4007-a12c-38a577858125"
+			type="UserCode">
 			</testmodule>
 			<testcase
 			id="ab4ee076-61f1-45f3-8211-a714feed6aa4"
-			name="TestCase">
+			name="API_Test">
 			</testcase>
 		</flatlistofchildren>
 		<childhierarchy>
@@ -46,10 +46,10 @@
 				name="Magento_RESTSharp">
 					<testcase
 					id="ab4ee076-61f1-45f3-8211-a714feed6aa4"
-					name="TestCase">
+					name="API_Test">
 						<testmodule
-						id="72513b42-237c-4cfa-87f8-0747b1031cfe"
-						name="Recording1">
+						id="6b64f493-1af8-43b2-9922-796f2e67d78b"
+						name="MagentoAPI">
 						</testmodule>
 					</testcase>
 				</testcase>

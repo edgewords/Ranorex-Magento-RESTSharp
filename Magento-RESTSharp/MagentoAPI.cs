@@ -1,6 +1,6 @@
 ﻿/*
  * Created by Ranorex
- * User: tom
+ * User: Tom Millichamp - Edgewords
  * Date: 18/06/2020
  * Time: 14:07
  * 
@@ -89,14 +89,13 @@ namespace Magento_RESTSharp
 			request = new RestRequest("rest/default/V1/customers/1", Method.GET);
 			request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
 			request.AddHeader("Content-Type","application/json;charset=utf-8");
-			request.AddHeader("cache-control", "no-cache");
 			response = client.Execute(request);
 
 	        status = (int)response.StatusCode;
 	        Report.Info("Response Code: " + status.ToString());
 	        Report.Info(response.Content);
-	        if (response.StatusCode == HttpStatusCode.OK){
-				Report.Success("200 OK returned");
+	        if (response.StatusCode == HttpStatusCode.OK && response.Content.Contains("roni_cost@example.com")){
+				Report.Success("200 OK returned correct customer");
 			}
 	        
 	        
@@ -106,7 +105,6 @@ namespace Magento_RESTSharp
 			request = new RestRequest("rest/default/V1/categories/2/products",Method.GET);
 			request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
 			request.AddHeader("Content-Type","application/json;charset=utf-8");
-			request.AddHeader("cache-control", "no-cache");
 			
 			IRestResponse<Product> prod_response = client.Execute<Product>(request);
 
@@ -140,7 +138,6 @@ namespace Magento_RESTSharp
 	        request = new RestRequest("rest/default/V1/customers", Method.POST);
 			request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
 			request.AddHeader("Content-Type","application/json;charset=utf-8");
-			request.AddHeader("cache-control", "no-cache");
 			request.AddJsonBody(body); // add the json customer details
 			response = client.Execute(request);
 	        
@@ -150,6 +147,19 @@ namespace Magento_RESTSharp
         	if (response.StatusCode == HttpStatusCode.OK){
 				Report.Success("200 OK returned");
 			} 
+	        
+	        
+	        /*****************************
+	         * Negative test for unauthorized
+	         * ***************************/
+			request = new RestRequest("rest/default/V1/customers/1", Method.GET);
+			request.AddHeader("cache-control", "no-cache");
+			response = client.Execute(request);
+			//check we got a 401 which is a pass
+	        if (response.StatusCode == HttpStatusCode.Unauthorized){
+				Report.Success("returned unauthorized 401 correctly");
+			}
+	        
 	        
         } // end of run method
     

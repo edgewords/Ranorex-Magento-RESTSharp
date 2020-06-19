@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<repository
+name="Magento-RESTSharpRepository"
+id="425ccd72-c3d3-450e-81e7-70d78b34a53f">
+  <codegen
+  classname="Magento-RESTSharpRepository"
+  namespace="Magento_RESTSharp"/>
+  <rootfolder
+  name="Root"
+  id="31f6b1c3-bd2e-4174-b0e3-adcf52eecea1"
+  searchtimeout="30000ms"
+  capname="unknown"
+  isrooted="True"
+  usecache="True">
+    <basepath/>
+  </rootfolder>
+  <variables/>
+</repository>

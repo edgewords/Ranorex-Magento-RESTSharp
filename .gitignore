@@ -1,0 +1,17 @@
+**/obj/
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+*.user
+*.pref
+
+# Ranorex Specigic files
+**/Reports/
+*.rxuser
+*.rxlog
+*.rxlog.data
+*.rxuser

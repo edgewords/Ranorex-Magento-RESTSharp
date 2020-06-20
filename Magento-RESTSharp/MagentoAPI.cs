@@ -149,6 +149,21 @@ namespace Magento_RESTSharp
 			} 
 	        
 	        
+	        
+	        /**********************************************************
+	        //Create a customer using a string of json, so no serialization
+	        //Shows why using Objects to store values is easier!
+	        * ********************************************************/
+	        String custJSON = @"{""customer"": {""email"": ""joeb@test.com"",""firstname"": ""tom"",""lastname"": ""jones"",""website_id"": 1}}";
+			request = new RestRequest("rest/default/V1/customers", Method.POST);
+			request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
+	        request.AddJsonBody(custJSON); // add the json customer details
+			response = client.Execute(request);
+			Report.Info(response.StatusCode.ToString());
+	        Report.Info(response.Content);
+	        
+	        
+	        
 	        /*****************************
 	         * Negative test for unauthorized
 	         * ***************************/

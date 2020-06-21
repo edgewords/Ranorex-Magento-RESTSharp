@@ -31,14 +31,14 @@ namespace Magento_RESTSharp
 		}
 	***/
 	
-	public class CustomerParamater
+	public class Customer
 	{
 		// see https://www.newtonsoft.com/json/help/html/JsonPropertyName.htm for explanation
 	    [JsonProperty("customer")]
-	    public Customer Customer { get; set; }
+	    public CustomerDetails _customer_details { get; set; }
 	}
 	
-	public class Customer
+	public class CustomerDetails
 	{
 		public String Email { get; set; }
 		public String Firstname { get; set; }

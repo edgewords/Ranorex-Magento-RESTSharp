@@ -122,9 +122,9 @@ namespace Magento_RESTSharp
 			/**********************************************************
 	        //Create a customer (can only use the same email once)
 	        * ********************************************************/
-	        CustomerParamater myCustomer = new CustomerParamater
+	        Customer myCustomer = new Customer
 		    {
-		        Customer = new Customer 
+		        _customer_details = new CustomerDetails 
 		        	{     	
 				    Email = "testr@myplace.co.uk",
 					Firstname = "testy",

@@ -74,7 +74,7 @@ namespace Magento_RESTSharp
 	        * Get the categories from magento  
 			********************************/                
 	        RestRequest request = new RestRequest("rest/default/V1/categories", Method.GET);
-	        request.AddHeader("Authorization", "Bearer" + token); //supply our authorization token
+	        request.AddHeader("Authorization", token); //supply our authorization token
 	        
 	        IRestResponse response = client.Execute(request);
 	        
@@ -87,7 +87,8 @@ namespace Magento_RESTSharp
 	         * Get a customer record
 	         * ***************************/
 			request = new RestRequest("rest/default/V1/customers/1", Method.GET);
-			request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
+			//request.AddHeader("Authorization", "Bearer ayi6rlsmypq596wgf7xskf6cg3cw1044");
+			request.AddHeader("Authorization", token); //using dynamic token, but could use hard-coded as line above
 			request.AddHeader("Content-Type","application/json;charset=utf-8");
 			response = client.Execute(request);
 
@@ -207,7 +208,11 @@ namespace Magento_RESTSharp
             var response = _restClient.Execute(request);
 
             var token=response.Content; 
+            token=token.Replace("\"","");
+            token = token.Trim(' ','\r','\n');
+            token = "Bearer " + token;
             Report.Info("Token is : " + token);
+            
             
             return token;
         }
